@@ -1,0 +1,61 @@
+Pseudo Code for KNN Classification
+
+##understand the problem statement for wine quality Dataset
+##import all necessary libraries
+import pandas as pd
+import numpy as np
+import sklearn.model_selection import train_test_split
+
+##Load the wine quality dataset into as pandas dataframe
+Data=pd.read_csv("winequality.csv")
+
+## Normalize the dataset by subtracting the mean and dividing by the standard deviation
+Data_normalized=(Data-mean)/std
+
+##preprocess the data [eg:impute missing values,checking outliers..,]
+##Exploratory Data Analysis(EDA)[eg:To check any outliers,missing values]and uses various visualization tools [eg:histograms, box plots,scatter plots]
+
+##split the dataset into training and testing datasets
+
+X_split=(Data_normalized.drop['quality'],axis=1)
+y_split=Data_normalized['quality']
+X_train,X_test,y_train,y_test=train_test_split(Data_normalized.drop['quality'],axis=1),Data_normalized['quality'],test_size=0.2,random_state=34)
+
+##calculate distance matrix
+
+ def euclidean_distance(X_train,X_test):
+    for i in range(len(X_test)):
+         return np.sqrt(np.sum(X_test-X_train)**2))
+
+##select the k-nearest neighbors of the instance based on the calculated distances 
+X=X_split[2] # A datapoint to want to find the k-nearest neighbors
+
+def get_nearest_neighbors(X_split,X,K):
+   euclidean_distance = []
+   for i in range(len(X_train)):
+       d = np.sqrt(np.sum((X_test-X_train[i]**2))
+       euclidean_distance.append(i,d))
+   euclidean_distance.sort(key=lambda X:X[1])
+   Neighbors=[distances[i][0] for i in range(k)]
+   return neighbors
+
+##Classify the instance based on the majority class of the K-nearest neighbors.
+
+ def predict_data(X_test,X_train,y_train,K):
+   neighbors =get_nearest_neighbors(X_split,X,K)
+   classes= [y_train[i] for i in neighbors]
+   class_count={}
+   for c in classes:
+        if c in class_count:
+           class_count[c]+=1
+         else :
+           class_count[c]=1
+    prediction = Max(class_count,key=class_count.get)
+    return prediction
+
+
+##Evaluate the classification accuracy on the testing dataset
+##Repeat steps 4-8 for different values of K and distance metrics to find the best hyperparameters
+##Output the best hyperparameters and the classification accuracy on the testing dataset
+
+
